@@ -31,6 +31,7 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
     const savedCorrectAnswers: string | null = localStorage.getItem("correctAnswers");
     const savedPlayerName: string | null = localStorage.getItem("playerName");
     const savedPlayerGender: string | null = localStorage.getItem("playerGender");
+    const savedSecondsElapsed: string | null = localStorage.getItem("secondsElapsed");
 
     if (currentStep) {
       setSteps(parseInt(currentStep, 10));
@@ -63,6 +64,10 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
     if (savedPlayerGender) {
       setPlayerGender(JSON.parse(savedPlayerGender));
     }
+
+    if (savedSecondsElapsed) {
+      setSecondsElapsed(parseInt(savedSecondsElapsed, 10));
+    }
   } , [])
 
   useEffect(() => {
@@ -73,6 +78,10 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
     localStorage.setItem("gameEnded", JSON.stringify(gameEnded));
     localStorage.setItem("playerGender", JSON.stringify(playerGender));
   }, [steps, totalPoints, pointsEarned, totalCorrectAnswers, gameEnded, playerGender]);
+
+  useEffect(() => {
+    localStorage.setItem("secondsElapsed", JSON.stringify(secondsElapsed));
+  }, [secondsElapsed]);
 
   function addPointsEarned(points: number) {
     setPointsEarned((prev: number) => prev + points);
@@ -148,6 +157,7 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
     localStorage.removeItem("currentIndex");
     localStorage.removeItem("quizzData");
     localStorage.removeItem("gameEnded");
+    localStorage.removeItem("secondsElapsed");
   }
 
   const quizzContextValue: QuizzContextType = {
