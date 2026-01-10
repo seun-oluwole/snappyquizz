@@ -1,4 +1,5 @@
 import { useQuizzContext } from "../context/quizz-context";
+import Timer from "./timer";
 
 interface Props {
   currentIndex: number
@@ -14,9 +15,7 @@ export default function QuizzHead({ currentIndex }: Props) {
       <div>
      {`Question ${currentQuestion}/${totalQuestions}`}
       </div>
-      <div>
-        00:00
-      </div>
+     <Timer />
     </div>
   )
 }

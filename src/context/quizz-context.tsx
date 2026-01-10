@@ -10,6 +10,7 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
   const [totalPoints, setTotalPoints] = useState<number>(0);
   const [pointsEarned, setPointsEarned] = useState<number>(0);
   const [questionCount, setQuestionCount] = useState<number>(10);
+  const [secondsElapsed, setSecondsElapsed] = useState<number>(0);
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState<number>(0);
   const [gameEnded, setGameEnded] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("9");
@@ -178,7 +179,9 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
     playerName,
     playerGender,
     setPlayerName,
-    setPlayerGender
+    setPlayerGender,
+    secondsElapsed,
+    setSecondsElapsed
   };
 
   return <QuizzContext.Provider value={quizzContextValue}>{children}</QuizzContext.Provider>;

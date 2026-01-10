@@ -13,7 +13,7 @@ export default function QuizzFooter({ currentIndex, setCurrentIndex }: Props) {
   const trueBtnRef = useRef<HTMLButtonElement | null>(null);
   const falseBtnRef = useRef<HTMLButtonElement | null>(null);
   const { setRestartGameModal } = useModalContext();
-  const { quizzData, totalCorrectAnswers, setTotalCorrectAnswers, setSteps, addPointsEarned, playAgain } = useQuizzContext();
+  const { quizzData, setTotalCorrectAnswers, setSteps, addPointsEarned} = useQuizzContext();
 
   const currentQuestionNumber: number = currentIndex + 1;
   const totalQuestions: number = quizzData.length;
@@ -90,7 +90,7 @@ export default function QuizzFooter({ currentIndex, setCurrentIndex }: Props) {
       }, 1500);
     } 
   }
-  
+
   return (
     <div className="flex mt-5 justify-around rounded-2xl">
       <button

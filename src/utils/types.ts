@@ -24,6 +24,8 @@ export interface QuizzContextType {
   loadingQuizz: boolean;
   fetchError: unknown;
   gameEnded: boolean;
+  secondsElapsed: number;
+  setSecondsElapsed: React.Dispatch<React.SetStateAction<number>>;
   initQuizzData: () => Promise<void>;
   playAgain: () => void;
   addPointsEarned: (points: number) => void;
