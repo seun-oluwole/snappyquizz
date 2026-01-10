@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useModalContext } from "../../context/modal-context";
-import CustomModal from "../custom-modal";
 import { IoMdFemale, IoMdMale } from "react-icons/io";
 import { useNavigate } from "react-router";
 import { useQuizzContext } from "../../context/quizz-context";
 import { FaAngleLeft } from "react-icons/fa";
+import CustomModal from "../custom-modal";
 
 export default function GetStartedModal() {
   const [steps, setSteps] = useState<number>(1);

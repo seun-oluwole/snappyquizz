@@ -154,6 +154,7 @@ export default function QuizzContextProvider({ children }: React.PropsWithChildr
     setQuizzType("boolean");
     setTotalCorrectAnswers(0);
     setGameEnded(false);
+    setSecondsElapsed(0);
     localStorage.removeItem("currentIndex");
     localStorage.removeItem("quizzData");
     localStorage.removeItem("gameEnded");
